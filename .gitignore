@@ -1,0 +1,55 @@
+# Python 通用
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 环境与构建
+
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Poetry 虚拟环境（如果你用 virtualenvs.in-project = true）
+.venv/
+env/
+venv/
+
+# 构建/分发
+build/
+dist/
+*.egg-info/
+.coverage
+htmlcov/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 其他常见
+.DS_Store
+Thumbs.db
+
+# 原始与生成
+# 🚨 核心：忽略数据文件
+# 我们不希望把几 GB 的日语语音传到 GitHub
+library/
+output/
+data/
+data/ApgkFiles
+
+# 本地工具脚本（调试）
+tools/
+
+# 忽略缓存
+.cache/
+*.apkg
+*.db
+*.log
+
+# Pytest 缓存
+.pytest_cache/

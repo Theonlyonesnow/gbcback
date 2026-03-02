@@ -1,0 +1,37 @@
+[project]
+name = "gbcback"
+version = "0.1.0"
+description = "Anki 无损解包与打包工具：支持 YAML 编辑、模板同步与复习进度保留。"
+authors = [
+    {name = "Theonlyonesnow", email = "shishihenhen@outlook.com"}
+]
+readme = "README.md"
+
+requires-python = ">=3.13"
+dependencies = [
+    "zstandard (>=0.23.0)",  # 处理新版 Anki 的数据库和媒体索引压缩
+    "pyyaml (>=6.0.1)",      # 提供人类友好的 notes.yaml 编辑格式
+    "tqdm (>=4.66.0)",       # 进度条支持
+    "colorama (>=0.4.6)",    # 跨平台终端彩色显示
+    "protobuf (>=4.25.0)",   # 运行 anki_pb2.py 所需的核心运行时
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+# 确保包含 gbcback 整个包
+packages = [
+    {include = "gbcback"}
+]
+
+[tool.poetry.scripts]
+# 定义全局命令
+gbcback = "gbcback.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest (>=8.0.0)",
+    "mypy (>=1.8.0)"
+]

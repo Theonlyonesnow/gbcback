@@ -1,0 +1,42 @@
+// gbcback/anki/proto/anki.proto
+syntax = "proto3";
+
+package anki;
+
+// --- 媒体部分 ---
+message MediaEntry {
+  string name = 1;
+  int64 size = 2;
+  bytes sha1_hash = 3;
+}
+
+message MediaEntries {
+  repeated MediaEntry entries = 1;
+}
+
+// --- 新增：卡片模板部分 ---
+
+// 对应 notetypes 表的 config 字段
+message NotetypeConfig {
+  // 我们只关心 CSS，其他的设置暂时忽略
+  string css = 3;
+}
+
+// 对应 notetypes 表的主体
+message Notetype {
+  int64 id = 1;
+  string name = 2;
+  NotetypeConfig config = 7; // 注意：配置嵌套在字段 7 里
+}
+
+// 对应 templates 表的 config 字段
+message TemplateConfig {
+  string q_format = 1; // 正面 HTML
+  string a_format = 2; // 背面 HTML
+}
+
+// 对应 templates 表的主体
+message Template {
+  string name = 2;
+  TemplateConfig config = 5; // 配置嵌套在字段 5 里
+}
