@@ -7,7 +7,7 @@ authors = [
 ]
 readme = "README.md"
 
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "zstandard (>=0.23.0)",  # 处理新版 Anki 的数据库和媒体索引压缩
     "pyyaml (>=6.0.1)",      # 提供人类友好的 notes.yaml 编辑格式
